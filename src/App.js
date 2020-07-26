@@ -21,9 +21,7 @@ class App extends Component {
     const { monsters } = this.state;
     return(
       <div className="App" >
-        <CardList name='Neven'>
-          {monsters.map((monsterObj, index) => <h1 key={`monster${index}`}>{monsterObj.name}</h1>)}
-        </CardList>
+        <CardList monsters={monsters} />
       </div>
     );
   }
