@@ -13,7 +13,7 @@ class App extends Component {
     };
   }
 
-  onSearchfieldChange = (event) => {
+  handleSearchfieldChange = (event) => {
     this.setState({searchText: event.target.value});
   }
 
@@ -32,7 +32,7 @@ class App extends Component {
     return(
       <div className="App" >
         <h1>Monsters</h1>
-        <Searchfield onChange={this.onSearchfieldChange} placeholder="search" />
+        <Searchfield onChange={this.handleSearchfieldChange} placeholder="search" />
         <CardList monsters={filteredMonsters} />
       </div>
     );
