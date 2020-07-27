@@ -32,7 +32,7 @@ class App extends Component {
     return(
       <div className="App" >
         <h1>Monsters</h1>
-        <Searchfield onChange={this.onSearchfieldChange} />
+        <Searchfield onChange={this.onSearchfieldChange} placeholder="search" />
         <CardList monsters={filteredMonsters} />
       </div>
     );

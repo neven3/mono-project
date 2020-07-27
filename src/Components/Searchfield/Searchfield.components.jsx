@@ -1,9 +1,9 @@
 import React from 'react';
 import './searchfield.styles.css';
 
-const Searchfield = (props) => {
+const Searchfield = ({placeholder, onChange}) => {
     return(
-        <input className="search" onChange={props.onChange} type="search" placeholder="search monsters" />
+        <input className="search" onChange={onChange} type="search" placeholder={placeholder} />
     );
 };
 
