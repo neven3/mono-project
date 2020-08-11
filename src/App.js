@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardList from './Components/CardList/CardList.components';
-import Searchfield from './Components/Searchfield/Searchfield.components';
+import CardList from './Components/CardList';
+import ListManipulator from './Components/ListManipulator';
 import './App.css';
 
 class App extends Component {
@@ -15,6 +15,14 @@ class App extends Component {
 
   handleSearchfieldChange = (event) => {
     this.setState({searchText: event.target.value});
+  }
+
+  sortItems = (direction, sortByKey) => {
+    if (direction === 'ascending') {
+      this.setState({monsters: this.state.monsters.sort((a, b) => a[sortByKey] > b[sortByKey] ? 1 : -1)})
+    } else if (direction === 'descending') {
+      this.setState({monsters: this.state.monsters.sort((a, b) => a[sortByKey] < b[sortByKey] ? 1 : -1)})
+    }
   }
 
   componentDidMount() {
@@ -32,7 +40,7 @@ class App extends Component {
     return(
       <div className="App" >
         <h1>Monsters</h1>
-        <Searchfield onChange={this.handleSearchfieldChange} placeholder="search" />
+        <ListManipulator handleSearchfieldChange={this.handleSearchfieldChange} sortFunction={this.sortItems} />
         <CardList monsters={filteredMonsters} />
       </div>
     );
