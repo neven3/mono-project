@@ -20,9 +20,25 @@ class App extends Component {
 
   sortItems = (direction, sortByKey) => {
     if (direction === 'ascending') {
-      this.setState({cars: this.state.cars.sort((a, b) => a[sortByKey] > b[sortByKey] ? 1 : -1)})
+      this.setState({
+        cars: this.state.cars.sort((a, b) => {
+          if (typeof a[sortByKey] === 'string') {
+            return a[sortByKey].toLowerCase() > b[sortByKey].toLowerCase() ? 1 : -1;
+          } else {
+            return a[sortByKey] > b[sortByKey] ? 1 : -1; 
+          }
+        }),
+      });
     } else if (direction === 'descending') {
-      this.setState({cars: this.state.cars.sort((a, b) => a[sortByKey] < b[sortByKey] ? 1 : -1)})
+      this.setState({
+        cars: this.state.cars.sort((a, b) => {
+          if (typeof a[sortByKey] === 'string') {
+            return a[sortByKey].toLowerCase() < b[sortByKey].toLowerCase() ? 1 : -1;
+          } else {
+            return a[sortByKey] < b[sortByKey] ? 1 : -1;
+          }
+        }),
+      });
     }
   }
 
@@ -39,7 +55,10 @@ class App extends Component {
     return(
       <div className="App" >
         <h1>Cars</h1>
-        <ListManipulator handleSearchfieldChange={this.handleSearchfieldChange} sortFunction={this.sortItems} />
+        <ListManipulator
+          handleSearchfieldChange={this.handleSearchfieldChange}
+          sortFunction={this.sortItems}
+        />
         <CardList cars={filteredCars} />
       </div>
     );
