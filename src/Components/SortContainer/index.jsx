@@ -1,12 +1,12 @@
 import React from 'react';
-import SortButton from '../SortButton'
+import SortOption from '../SortOption';
 
 export default function SortContainer(props) {
     return(
-        <div style={{display: 'inline-block', margin: '50px', border: '3px solid black', padding: '20px', color: 'white'}}>
-            <h2>Sort by {props.sortBy}</h2>
-            <SortButton sortBy={props.sortBy} direction="ascending" onClick={props.sortFunction} />
-            <SortButton sortBy={props.sortBy} direction="descending" onClick={props.sortFunction} />
+        <div>
+            <SortOption sortFunction={props.sortFunction} sortBy="make" />
+            <SortOption sortFunction={props.sortFunction} sortBy="model" />
+            <SortOption sortFunction={props.sortFunction} sortBy="price" />
         </div>
     );
-}
+};

@@ -3,7 +3,10 @@ import './styles.css';
 
 const Searchfield = ({placeholder, onChange}) => {
     return(
-        <input className="search" onChange={onChange} type="search" placeholder={placeholder} />
+        <div>
+            <h2>Find a car</h2>
+            <input className="search" onChange={onChange} type="search" placeholder={placeholder} />
+        </div>
     );
 };
 

@@ -6,9 +6,9 @@ const CardList = props => {
     return (
         <div className='card-list'>
             {
-                props.monsters.map(monster => {
+                props.cars.map(car => {
                     return (
-                        <Card key={monster.id} monster={monster} />
+                        <Card key={Math.random()} car={car} />
                     );
                 })
             }

@@ -6,8 +6,7 @@ export default function ListManipulator(props) {
     return(
         <div>
             <Searchfield onChange={props.handleSearchfieldChange} placeholder="search" />
-            <SortContainer sortFunction={props.sortFunction} sortBy="name" />
-            <SortContainer sortFunction={props.sortFunction} sortBy="email" />
+            <SortContainer sortFunction={props.sortFunction} />
         </div>
     );
 };
