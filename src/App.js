@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import CardList from './Components/CardList';
 import ListManipulator from './Components/ListManipulator';
 import './App.css';
+import Pagination from './Components/Pagination'
 import cars from './Common/mockData';
 import sortItems from './Common/sortItems'
+import getCurrentCards from './Common/getCurrentCards';
 
 class App extends Component {
   constructor() {
@@ -15,6 +17,8 @@ class App extends Component {
         sortBy: 'make',
         direction: 'ascending',
       },
+      currentPage: 1,
+      cardsPerPage: 5,
     };
   }
 
@@ -29,13 +33,27 @@ class App extends Component {
     }});
   }
 
+    // getCurrentCards = (array) => {
+    //   const indexOfLastCard = this.state.currentPage * this.state.cardsPerPage;
+    //   const indexOfFirstCard = indexOfLastCard - this.state.cardsPerPage;
+    //   const currentCards = array.slice(indexOfFirstCard, indexOfLastCard);
+    //   return currentCards;
+    // }
+
+    setCurrentPage = (event) => {
+      this.setState({
+        currentPage: event.target.id,
+      });
+    }
+
   render() {
-    const { searchText, sortParams: {sortBy, direction} } = this.state;
+    const { searchText, sortParams: {sortBy, direction}, currentPage, cardsPerPage } = this.state;
     const sortedCars = sortItems(cars, direction, sortBy);
     const filteredCars = sortedCars.filter(car => {
       return car.make.toLowerCase().includes(searchText) || car.model.toLowerCase().includes(searchText);
     });
-    
+    const currentCards = getCurrentCards(filteredCars, currentPage, cardsPerPage);
+
     return(
       <div className="App" >
         <h1>Cars</h1>
@@ -43,7 +61,12 @@ class App extends Component {
           handleSearchfieldChange={this.handleSearchfieldChange}
           doOnSortClick={this.handleSortButtonClick}
         />
-        <CardList cars={filteredCars} />
+        <CardList cars={currentCards} />
+        <Pagination 
+          cardsPerPage={this.state.cardsPerPage}
+          totalCards={filteredCars.length}
+          setCurrentPage={this.setCurrentPage}
+        />
       </div>
     );
   }
