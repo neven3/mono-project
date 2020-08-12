@@ -18,7 +18,7 @@ class App extends Component {
         direction: 'ascending',
       },
       currentPage: 1,
-      cardsPerPage: 5,
+      cardsPerPage: 6,
     };
   }
 
@@ -33,18 +33,11 @@ class App extends Component {
     }});
   }
 
-    // getCurrentCards = (array) => {
-    //   const indexOfLastCard = this.state.currentPage * this.state.cardsPerPage;
-    //   const indexOfFirstCard = indexOfLastCard - this.state.cardsPerPage;
-    //   const currentCards = array.slice(indexOfFirstCard, indexOfLastCard);
-    //   return currentCards;
-    // }
-
-    setCurrentPage = (event) => {
-      this.setState({
-        currentPage: event.target.id,
-      });
-    }
+  setCurrentPage = (event) => {
+    this.setState({
+      currentPage: event.target.id,
+    });
+  }
 
   render() {
     const { searchText, sortParams: {sortBy, direction}, currentPage, cardsPerPage } = this.state;
