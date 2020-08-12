@@ -6,3 +6,7 @@
     border: none;
     background-color: lightskyblue;
 }
+
+.sort-button:hover {
+    cursor: pointer;
+}
