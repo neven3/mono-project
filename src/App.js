@@ -13,7 +13,7 @@ class App extends Component {
       cars,
       searchText: '',
       currentPage: 1,
-      cardsPerPage: 5,
+      cardsPerPage: 6,
     };
   }
 
