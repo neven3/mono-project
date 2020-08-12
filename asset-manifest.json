@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mono-project/static/css/main.87f236f1.chunk.css",
+    "main.js": "/mono-project/static/js/main.302b033e.chunk.js",
+    "main.js.map": "/mono-project/static/js/main.302b033e.chunk.js.map",
+    "runtime-main.js": "/mono-project/static/js/runtime-main.ef7a9e88.js",
+    "runtime-main.js.map": "/mono-project/static/js/runtime-main.ef7a9e88.js.map",
+    "static/js/2.3cc8d506.chunk.js": "/mono-project/static/js/2.3cc8d506.chunk.js",
+    "static/js/2.3cc8d506.chunk.js.map": "/mono-project/static/js/2.3cc8d506.chunk.js.map",
+    "index.html": "/mono-project/index.html",
+    "precache-manifest.26e1066713ca072d3e2e72cae5e4fae2.js": "/mono-project/precache-manifest.26e1066713ca072d3e2e72cae5e4fae2.js",
+    "service-worker.js": "/mono-project/service-worker.js",
+    "static/css/main.87f236f1.chunk.css.map": "/mono-project/static/css/main.87f236f1.chunk.css.map",
+    "static/js/2.3cc8d506.chunk.js.LICENSE.txt": "/mono-project/static/js/2.3cc8d506.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ef7a9e88.js",
+    "static/js/2.3cc8d506.chunk.js",
+    "static/css/main.87f236f1.chunk.css",
+    "static/js/main.302b033e.chunk.js"
+  ]
+}
