@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './Screens/Home';
 import Main from './Screens/Main';
-import Edit from './Screens/Edit';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      screen: 'home',
+      screen: 'edit',
+      // screen: 'home',
     };
   }
 
@@ -21,17 +21,16 @@ class App extends Component {
 
   render() {
     const {screen} = this.state;
-    if (screen === 'edit') {
-      return(
-        <Edit changeScreen={() => this.changeScreen('main')} />
-      );
-    } else if (screen === 'main') {
-      return(
-        <Main changeScreen={() => this.changeScreen('edit')} />
-      );
+
+    if (screen === 'home') {
+      return <Home changeScreen={() => this.changeScreen('main')} />
     }
+
     return(
-      <Home changeScreen={() => this.changeScreen('main')} />
+        <Main 
+          screen={screen}
+          changeScreen={this.changeScreen}
+        />
     );
   }
 }

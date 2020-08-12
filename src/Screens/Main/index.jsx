@@ -5,10 +5,12 @@ import Pagination from '../../Components/Pagination'
 import cars from '../../Common/mockData';
 import sortItems from '../../Common/sortItems'
 import getCurrentCards from '../../Common/getCurrentCards';
+import Edit from '../Edit';
+import './styles.css';
 
 class Main extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
         searchText: '',
@@ -51,18 +53,23 @@ class Main extends Component {
         });
         const currentCards = getCurrentCards(filteredCars, currentPage, cardsPerPage);
 
-        return(
-            <div className="Main">
-                <h1>Cars</h1>
+        const edit = (
+            <Edit changeScreen={this.props.changeScreen}>
+                <CardList cars={currentCards} />
+            </Edit>
+        );
+
+        const main = (
+            <div>
                 <ListManipulator
                     handleSearchfieldChange={this.handleSearchfieldChange}
                     doOnSortClick={this.handleSortButtonClick}
                 />
                 <button
                     className="edit"
-                    onClick={this.props.changeScreen}
+                    onClick={() => this.props.changeScreen('edit')}
                 >
-                    Edit
+                    Edit a card
                 </button>
                 <CardList cars={currentCards} />
                 <Pagination 
@@ -70,6 +77,17 @@ class Main extends Component {
                     totalCards={filteredCars.length}
                     setCurrentPage={this.setCurrentPage}
                 />
+            </div>
+        );
+
+        return(
+            <div className="Main">
+                <h1>Cars</h1>
+                {
+                    this.props.screen === 'edit'
+                        ? edit
+                        : main
+                }
             </div>            
         );
     }

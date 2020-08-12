@@ -1,13 +1,4 @@
-.screen h2 {
-    color: goldenrod;
-}
-
-.screen h3:not(".car-make") {
-    font-size: 30px;
-    color: white;
-}
-
-.go-back-button {
+.edit {
     cursor: pointer;
     font-size: 30px;
     padding: 30px;
@@ -17,8 +8,9 @@
     position: absolute;
     top: 250px;
     right: 200px;
+    background-color: lightcoral;
 }
 
-.go-back-button:hover {
-    background-color: lightskyblue;
+.edit:hover {
+    background-color: rgb(241, 76, 76);
 }

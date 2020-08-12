@@ -17,3 +17,8 @@
 .card-container:hover {
   transform: scale(1.05);
 }
+
+.card-container h3.car-make {
+  font-size: 20px;
+  color: black;
+}
