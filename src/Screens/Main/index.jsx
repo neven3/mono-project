@@ -27,14 +27,14 @@ class Main extends Component {
 
     handleSortButtonClick = (sortBy, direction) => {
         this.setState({sortParams: {
-        sortBy,
-        direction,
+            sortBy,
+            direction,
         }});
     }
 
     setCurrentPage = (event) => {
         this.setState({
-        currentPage: event.target.id,
+            currentPage: event.target.id,
         });
     }
 
