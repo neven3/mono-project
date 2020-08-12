@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../Card';
 import './styles.css';
 
-const CardList = props => {
+export default function CardList(props) {
     return (
         <div className='card-list'>
             {
@@ -15,5 +15,3 @@ const CardList = props => {
         </div>
     );
 };
-
-export default CardList;
