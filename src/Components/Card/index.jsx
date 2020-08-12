@@ -6,7 +6,7 @@ export default function Card(props) {
         <div className="card-container">
             <h2>{props.car.make}</h2>
             <p>{props.car.model}</p>
-            <p>${props.car.price}</p>
+            <p>${new Intl.NumberFormat('en-US').format(props.car.price)}</p>
         </div>
     );
 };
