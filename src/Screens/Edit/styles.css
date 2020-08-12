@@ -1,0 +1,17 @@
+.screen {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.back {
+    cursor: pointer;
+    font-size: 30px;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s linear;
+}
+
+.back:hover {
+    background-color: lightskyblue;
+}

@@ -58,6 +58,7 @@ class Main extends Component {
                 handleSearchfieldChange={this.handleSearchfieldChange}
                 doOnSortClick={this.handleSortButtonClick}
             />
+            <button className="edit" onClick={this.props.changeScreen}>Edit</button>
             <CardList cars={currentCards} />
             <Pagination 
                 cardsPerPage={this.state.cardsPerPage}
