@@ -8,7 +8,9 @@ export default function Edit(props) {
             <button
                 className="back"
                 onClick={props.changeScreen}
-            >Go back to main</button>
+            >
+                Go back to main
+            </button>
         </div>
     );
 };

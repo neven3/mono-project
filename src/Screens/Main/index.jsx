@@ -52,19 +52,24 @@ class Main extends Component {
         const currentCards = getCurrentCards(filteredCars, currentPage, cardsPerPage);
 
         return(
-            <div className="App" >
-            <h1>Cars</h1>
-            <ListManipulator
-                handleSearchfieldChange={this.handleSearchfieldChange}
-                doOnSortClick={this.handleSortButtonClick}
-            />
-            <button className="edit" onClick={this.props.changeScreen}>Edit</button>
-            <CardList cars={currentCards} />
-            <Pagination 
-                cardsPerPage={this.state.cardsPerPage}
-                totalCards={filteredCars.length}
-                setCurrentPage={this.setCurrentPage}
-            />
+            <div className="Main">
+                <h1>Cars</h1>
+                <ListManipulator
+                    handleSearchfieldChange={this.handleSearchfieldChange}
+                    doOnSortClick={this.handleSortButtonClick}
+                />
+                <button
+                    className="edit"
+                    onClick={this.props.changeScreen}
+                >
+                    Edit
+                </button>
+                <CardList cars={currentCards} />
+                <Pagination 
+                    cardsPerPage={this.state.cardsPerPage}
+                    totalCards={filteredCars.length}
+                    setCurrentPage={this.setCurrentPage}
+                />
             </div>            
         );
     }
