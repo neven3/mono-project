@@ -4,9 +4,9 @@ import SortOption from '../SortOption';
 export default function SortContainer(props) {
     return(
         <div>
-            <SortOption sortFunction={props.sortFunction} sortBy="make" />
-            <SortOption sortFunction={props.sortFunction} sortBy="model" />
-            <SortOption sortFunction={props.sortFunction} sortBy="price" />
+            <SortOption doOnSortClick={props.doOnSortClick} sortBy="make" />
+            <SortOption doOnSortClick={props.doOnSortClick} sortBy="model" />
+            <SortOption doOnSortClick={props.doOnSortClick} sortBy="price" />
         </div>
     );
 };

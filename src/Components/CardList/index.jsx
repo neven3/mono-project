@@ -2,18 +2,16 @@ import React from 'react';
 import Card from '../Card';
 import './styles.css';
 
-const CardList = props => {
+export default function CardList(props) {
     return (
         <div className='card-list'>
             {
                 props.cars.map(car => {
                     return (
-                        <Card key={Math.random()} car={car} />
+                        <Card key={car.model + Math.random()} car={car} />
                     );
                 })
             }
         </div>
     );
 };
-
-export default CardList;

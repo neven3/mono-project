@@ -9,12 +9,12 @@ export default function SortOption(props) {
             <SortButton
                 sortBy={props.sortBy}
                 direction="ascending"
-                onClick={props.sortFunction}
+                onClick={props.doOnSortClick}
             />
             <SortButton
                 sortBy={props.sortBy}
                 direction="descending"
-                onClick={props.sortFunction}
+                onClick={props.doOnSortClick}
             />
         </div>
     );

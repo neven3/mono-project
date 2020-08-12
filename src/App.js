@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import CardList from './Components/CardList';
 import ListManipulator from './Components/ListManipulator';
 import './App.css';
-import mockData from './mockData';
+import cars from './Common/mockData';
+import sortItems from './Common/sortItems'
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      cars: [],
       searchText: '',
+      sortParams: {
+        sortBy: 'make',
+        direction: 'ascending',
+      },
     };
   }
 
@@ -18,46 +22,26 @@ class App extends Component {
     this.setState({searchText: event.target.value});
   }
 
-  sortItems = (direction, sortByKey) => {
-    if (direction === 'ascending') {
-      this.setState({
-        cars: this.state.cars.sort((a, b) => {
-          if (typeof a[sortByKey] === 'string') {
-            return a[sortByKey].toLowerCase() > b[sortByKey].toLowerCase() ? 1 : -1;
-          } else {
-            return a[sortByKey] > b[sortByKey] ? 1 : -1; 
-          }
-        }),
-      });
-    } else if (direction === 'descending') {
-      this.setState({
-        cars: this.state.cars.sort((a, b) => {
-          if (typeof a[sortByKey] === 'string') {
-            return a[sortByKey].toLowerCase() < b[sortByKey].toLowerCase() ? 1 : -1;
-          } else {
-            return a[sortByKey] < b[sortByKey] ? 1 : -1;
-          }
-        }),
-      });
-    }
-  }
-
-  componentDidMount() {
-    this.setState({cars: mockData})
+  handleSortButtonClick = (sortBy, direction) => {
+    this.setState({sortParams: {
+      sortBy,
+      direction,
+    }});
   }
 
   render() {
-    const { cars, searchText } = this.state;
-    const filteredCars = cars.filter(car => {
+    const { searchText, sortParams: {sortBy, direction} } = this.state;
+    const sortedCars = sortItems(cars, direction, sortBy);
+    const filteredCars = sortedCars.filter(car => {
       return car.make.toLowerCase().includes(searchText) || car.model.toLowerCase().includes(searchText);
     });
-
+    
     return(
       <div className="App" >
         <h1>Cars</h1>
         <ListManipulator
           handleSearchfieldChange={this.handleSearchfieldChange}
-          sortFunction={this.sortItems}
+          doOnSortClick={this.handleSortButtonClick}
         />
         <CardList cars={filteredCars} />
       </div>

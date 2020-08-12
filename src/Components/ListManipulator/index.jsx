@@ -5,8 +5,10 @@ import SortContainer from '../SortContainer';
 export default function ListManipulator(props) {
     return(
         <div>
-            <Searchfield onChange={props.handleSearchfieldChange} placeholder="search" />
-            <SortContainer sortFunction={props.sortFunction} />
+            <Searchfield 
+                onChange={props.handleSearchfieldChange} placeholder="search"
+            />
+            <SortContainer doOnSortClick={props.doOnSortClick} />
         </div>
     );
 };

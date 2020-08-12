@@ -3,7 +3,7 @@ import './styles.css';
 
 export default function SortButton(props) {
     function handleClick() {
-        props.onClick(props.direction, props.sortBy);
+        props.onClick(props.sortBy, props.direction);
     }
     
     return(

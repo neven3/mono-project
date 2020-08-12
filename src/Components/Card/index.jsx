@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-const Card = props => {
+export default function Card(props) {
     return(
         <div className="card-container">
             <h2>{props.car.make}</h2>
@@ -10,5 +10,3 @@ const Card = props => {
         </div>
     );
 };
-
-export default Card;
