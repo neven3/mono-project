@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import CardList from './Components/CardList';
 import ListManipulator from './Components/ListManipulator';
 import './App.css';
-import mockData from './mockData';
+import cars from './mockData';
+import Pagination from './Components/Pagination'
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      cars: [],
+      cars,
       searchText: '',
+      currentPage: 1,
+      cardsPerPage: 5,
     };
   }
 
@@ -42,8 +45,17 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({cars: mockData})
+  getCurrentCards = (array) => {
+    const indexOfLastCard = this.state.currentPage * this.state.cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - this.state.cardsPerPage;
+    const currentCards = array.slice(indexOfFirstCard, indexOfLastCard);
+    return currentCards;
+  }
+
+  setCurrentPage = (event) => {
+    this.setState({
+      currentPage: event.target.id,
+    });
   }
 
   render() {
@@ -51,6 +63,7 @@ class App extends Component {
     const filteredCars = cars.filter(car => {
       return car.make.toLowerCase().includes(searchText) || car.model.toLowerCase().includes(searchText);
     });
+    const currentCards = this.getCurrentCards(filteredCars);
 
     return(
       <div className="App" >
@@ -59,7 +72,12 @@ class App extends Component {
           handleSearchfieldChange={this.handleSearchfieldChange}
           sortFunction={this.sortItems}
         />
-        <CardList cars={filteredCars} />
+        <CardList cars={currentCards} />
+        <Pagination 
+          cardsPerPage={this.state.cardsPerPage}
+          totalCards={filteredCars.length}
+          setCurrentPage={this.setCurrentPage}
+        />
       </div>
     );
   }
