@@ -47,6 +47,7 @@ class Main extends Component {
             currentPage,
             cardsPerPage,
         } = this.state;
+        const screen = this.props.screen;
         const sortedCars = sortItems(cars, direction, sortBy);
         const filteredCars = sortedCars.filter(car => {
         return car.make.toLowerCase().includes(searchText) || car.model.toLowerCase().includes(searchText);
@@ -54,8 +55,15 @@ class Main extends Component {
         const currentCards = getCurrentCards(filteredCars, currentPage, cardsPerPage);
 
         const edit = (
-            <Edit changeScreen={this.props.changeScreen}>
-                <CardList cars={currentCards} />
+            <Edit 
+                changeScreen={this.props.changeScreen}
+                screen={screen}    
+            >
+                <CardList
+                    changeScreen={this.props.changeScreen}
+                    cars={currentCards}
+                    screen={screen}
+                />
             </Edit>
         );
 
@@ -66,12 +74,15 @@ class Main extends Component {
                     doOnSortClick={this.handleSortButtonClick}
                 />
                 <button
-                    className="edit"
+                    className="go-to-edit-btn"
                     onClick={() => this.props.changeScreen('edit')}
                 >
                     Edit a card
                 </button>
-                <CardList cars={currentCards} />
+                <CardList 
+                    cars={currentCards}
+                    screen={screen}
+                />
                 <Pagination 
                     cardsPerPage={this.state.cardsPerPage}
                     totalCards={filteredCars.length}
@@ -84,9 +95,9 @@ class Main extends Component {
             <div className="Main">
                 <h1>Cars</h1>
                 {
-                    this.props.screen === 'edit'
-                        ? edit
-                        : main
+                    screen === 'main'
+                        ? main
+                        : edit
                 }
             </div>            
         );

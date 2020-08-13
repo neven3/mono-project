@@ -1,4 +1,4 @@
-.edit {
+.go-to-edit-btn {
     cursor: pointer;
     font-size: 30px;
     padding: 30px;
@@ -11,6 +11,6 @@
     background-color: lightcoral;
 }
 
-.edit:hover {
+.go-to-edit-btn:hover {
     background-color: rgb(241, 76, 76);
 }

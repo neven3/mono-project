@@ -8,8 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-      screen: 'edit',
-      // screen: 'home',
+      screen: 'home',
     };
   }
 

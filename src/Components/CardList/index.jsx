@@ -8,7 +8,12 @@ export default function CardList(props) {
             {
                 props.cars.map(car => {
                     return (
-                        <Card key={car.model + Math.random()} car={car} />
+                        <Card 
+                            key={car.model + Math.random()}
+                            car={car}
+                            screen={props.screen}
+                            changeScreen={props.changeScreen}
+                        />
                     );
                 })
             }
