@@ -6,14 +6,14 @@ import pageStore from './Stores/PageStore';
 import {observer} from 'mobx-react';
 
 function App() {
-  if (pageStore.page === 'home') {
-    return <Home changeScreen={() => pageStore.changePage('main')} />
+  if (pageStore.screen === 'home') {
+    return <Home changeScreen={() => pageStore.changeScreen('main')} />
   }
 
   return(
       <Main 
-        screen={pageStore.page}
-        changeScreen={pageStore.changePage}
+        screen={pageStore.screen}
+        changeScreen={pageStore.changeScreen}
       />
   );
 }

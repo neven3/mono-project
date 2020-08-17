@@ -1,14 +1,14 @@
 import {observable, action, decorate} from 'mobx';
 
 class PageStore {
-    page = 'home';
+    screen = 'home';
 
-    changePage = page => this.page = page
+    changeScreen = screen => this.screen = screen
 }
 
 decorate(PageStore, {
-    page: observable,
-    changePage: action.bound,
+    screen: observable,
+    changeScreen: action.bound,
 
 });
 
