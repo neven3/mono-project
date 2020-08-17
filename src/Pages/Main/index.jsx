@@ -58,6 +58,6 @@ function Main(props) {
             }
         </div>            
     );
-}
+};
 
 export default observer(Main);

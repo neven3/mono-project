@@ -18,4 +18,4 @@ export default function SortOption(props) {
             />
         </div>
     );
-}
+};

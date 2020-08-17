@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-function Searchfield({placeholder, onChange, searchText}) {
+export default function Searchfield({placeholder, onChange, searchText}) {
     return(
         <div>
             <h2>Find a car</h2>
@@ -15,5 +15,3 @@ function Searchfield({placeholder, onChange, searchText}) {
         </div>
     );
 };
-
-export default Searchfield;

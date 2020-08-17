@@ -15,15 +15,15 @@ class CarStore {
 
     changeSearchText = (event) => {
         this.searchText = event.target.value;
-    }
+    };
 
     setSortParams = (sortBy, direction) => {
         this.sortParams = {sortBy, direction};
-    }
+    };
 
     setCurrentPage = (event) => {
         this.currentPage = event.target.id
-    }
+    };
 
     get filteredCars() {
         const sortedCars = sortItems(this.cars.slice(), this.sortParams.direction, this.sortParams.sortBy);

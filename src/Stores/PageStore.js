@@ -8,7 +8,7 @@ class PageStore {
 
 decorate(PageStore, {
     screen: observable,
-    changeScreen: action.bound,
+    changeScreen: action,
 });
 
 const pageStore = new PageStore();
