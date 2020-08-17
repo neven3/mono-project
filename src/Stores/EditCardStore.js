@@ -2,7 +2,6 @@ import {observable, action, decorate, toJS} from 'mobx';
 import carStore from './CarStore';
 
 class EditCardStore {
-
     car = {
         make: '',
         model: '',
