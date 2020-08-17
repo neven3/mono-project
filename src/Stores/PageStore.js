@@ -10,7 +10,7 @@ class PageStore {
 
 decorate(PageStore, {
     page: observable,
-    changePage: action,
+    changePage: action.bound,
 
 });
 

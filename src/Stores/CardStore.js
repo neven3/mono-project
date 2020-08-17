@@ -13,3 +13,7 @@ decorate(CardStore, {
     cardClicked: observable,
     handleCardClick: action,
 });
+
+const cardStore = new CardStore();
+
+export default cardStore;

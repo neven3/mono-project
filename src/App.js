@@ -2,36 +2,38 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './Pages/Home';
 import Main from './Pages/Main';
+import pageStore from './Stores/PageStore';
+import {observer} from 'mobx-react';
 
 class App extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      screen: 'home',
-    };
-  }
+  //   this.state = {
+  //     screen: 'home',
+  //   };
+  // }
 
-  changeScreen = screen => {
-    this.setState({
-      screen: screen,
-    });
-  }
+  // changeScreen = screen => {
+  //   this.setState({
+  //     screen: screen,
+  //   });
+  // }
 
   render() {
-    const {screen} = this.state;
+    // const {screen} = this.state;
 
-    if (screen === 'home') {
-      return <Home changeScreen={() => this.changeScreen('main')} />
+    if (pageStore.page === 'home') {
+      return <Home changeScreen={() => pageStore.changePage('main')} />
     }
 
     return(
         <Main 
-          screen={screen}
-          changeScreen={this.changeScreen}
+          screen={pageStore.page}
+          changeScreen={pageStore.changePage}
         />
     );
   }
 }
 
-export default App;
+export default observer(App);
