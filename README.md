@@ -1,3 +1,10 @@
+There are two complete versions of the assignment in this repository:
+
+ - One is on the `wire-mobx` branch and this is the version that uses all of the tech stack required in the task description. It's a combination of keeping state in `MobX` stores and passing it down to components as `props`. I left one small component stateful (`Card`).
+ - The other one is under the branch `edit-screen` and that’s the version where state is managed in pure React using stateful `class` components, while leaving stateless components as function components with state passed into them as props. Having never worked with MobX before this task, I decided to make a pure React app first, then try and convert that one to MobX.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
