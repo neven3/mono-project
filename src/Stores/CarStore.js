@@ -14,6 +14,14 @@ class CarStore {
     changeSearchText = (event) => {
         this.searchText = event.target.value;
     }
+
+    setSortParams = (sortBy, direction) => {
+        this.sortParams = {sortBy, direction};
+    }
+
+    setCurrentPage = (event) => {
+        this.currentPage = event.target.id
+    }
 }
 
 decorate(CarStore, {
@@ -22,7 +30,9 @@ decorate(CarStore, {
     sortParams: observable,
     currentPage: observable,
     cardsPerPage: observable,
-
+    changeSearchText: action,
+    setSortParams: action,
+    setCurrentPage: action,
 });
 
 const carStore = new CarStore();
