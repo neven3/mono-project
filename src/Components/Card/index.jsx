@@ -11,7 +11,6 @@ export default class Card extends Component {
 
     handleCardClick = () => {
         if (this.props.screen.includes('edit')) {
-            // this.props.changeScreen('edit-screen')
             this.setState({cardClicked: true});
         }
     }
