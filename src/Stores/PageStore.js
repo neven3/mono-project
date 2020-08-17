@@ -1,11 +1,9 @@
-import {observable, action, decorate, computed} from 'mobx';
+import {observable, action, decorate} from 'mobx';
 
 class PageStore {
     page = 'home';
 
     changePage = page => this.page = page
-
-
 }
 
 decorate(PageStore, {

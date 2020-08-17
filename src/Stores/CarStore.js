@@ -1,5 +1,7 @@
 import cars from '../Common/mockData';
 import {observable, action, decorate, computed} from 'mobx';
+import sortItems from '../Common/sortItems';
+import getCurrentCards from '../Common/getCurrentCards';
 
 class CarStore {
     cars = cars.slice();
@@ -22,6 +24,21 @@ class CarStore {
     setCurrentPage = (event) => {
         this.currentPage = event.target.id
     }
+
+    get filteredCars() {
+        const sortedCars = sortItems(this.cars, this.sortParams.direction, this.sortParams.sortBy);
+    
+        return sortedCars.filter(car => {
+            return(
+                car.make.toLowerCase().includes(this.searchText)
+                || car.model.toLowerCase().includes(this.searchText)
+            );
+        });
+    }
+
+    get currentCars() {
+        return getCurrentCards(this.filteredCars, this.currentPage, this.cardsPerPage);
+    }
 }
 
 decorate(CarStore, {
@@ -33,6 +50,8 @@ decorate(CarStore, {
     changeSearchText: action,
     setSortParams: action,
     setCurrentPage: action,
+    filteredCars: computed,
+    currentCars: computed,
 });
 
 const carStore = new CarStore();
