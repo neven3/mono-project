@@ -1,63 +1,28 @@
-import React, { Component } from 'react';
-import cars from '../../Common/mockData';
+import React from 'react';
 import './styles.css'
 import EditInputsContainer from '../EditInputsContainer/';
+import editCardStore from '../../Stores/EditCardStore';
+import {observer} from 'mobx-react';
 
-export default class EditCard extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            make: '',
-            model: '',
-            price: '',
-        };
-    }
-
-    handleInputChange = (event, input) => {
-        if (event.target.value.length !== 0) {
-            this.setState({[input]: event.target.value});
-        }
-    }
-
-    changeItemInArray = (arrOfKeysToChange) => {
-        const indexOfItemInCars = cars.findIndex((car) => {
-            return(
-                arrOfKeysToChange.reduce((accBool, currentKey) => {
-                    return accBool && car[currentKey] === this.props[currentKey];
-                }, true)
-            );
-        });
-
-        arrOfKeysToChange.forEach(key => {
-            if (this.state[key] !== '') {
-                if (typeof cars[indexOfItemInCars][key] === 'number') {
-                    cars[indexOfItemInCars][key] = Number(this.state[key]);
-                } else {
-                    cars[indexOfItemInCars][key] = this.state[key];
-                }
-            }
-        });
-    }
-
-    render() {
-        return (
-            <div className="card-container edit-card">
-                <EditInputsContainer
-                    propertiesArray={Object.keys(this.state)}
-                    placeholdersObject={this.props}
-                    onInputChangeFunc={this.handleInputChange}
-                />
-                <button
-                    className="changes-btn"
-                    onClick={() => {
-                        this.changeItemInArray(Object.keys(this.state));
-                        this.props.changeScreen();
-                    }}
-                >
-                        Make changes
-                </button>
-            </div>
-        );
-    }
+function EditCard(props) {
+    return (
+        <div className="card-container edit-card">
+            <EditInputsContainer
+                propertiesArray={Object.keys(editCardStore.car)}
+                placeholdersObject={props}
+                onInputChangeFunc={editCardStore.setCarSpecs}
+            />
+            <button
+                className="changes-btn"
+                onClick={() => {
+                    editCardStore.changeItemInArray(Object.keys(editCardStore.car), props);
+                    props.changeScreen();
+                }}
+            >
+                    Make changes
+            </button>
+        </div>
+    );
 };
+
+export default observer(EditCard);

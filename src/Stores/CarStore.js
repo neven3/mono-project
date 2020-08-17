@@ -26,7 +26,7 @@ class CarStore {
     }
 
     get filteredCars() {
-        const sortedCars = sortItems(this.cars, this.sortParams.direction, this.sortParams.sortBy);
+        const sortedCars = sortItems(this.cars.slice(), this.sortParams.direction, this.sortParams.sortBy);
     
         return sortedCars.filter(car => {
             return(
