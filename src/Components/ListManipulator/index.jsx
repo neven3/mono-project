@@ -8,6 +8,7 @@ export default function ListManipulator(props) {
             <Searchfield 
                 onChange={props.handleSearchfieldChange}
                 placeholder="search"
+                searchText={props.searchText}
             />
             <SortContainer doOnSortClick={props.doOnSortClick} />
         </div>

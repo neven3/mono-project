@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-function Searchfield({placeholder, onChange}) {
+function Searchfield({placeholder, onChange, searchText}) {
     return(
         <div>
             <h2>Find a car</h2>
@@ -9,7 +9,8 @@ function Searchfield({placeholder, onChange}) {
                 className="search"
                 onChange={onChange}
                 type="search"
-                placeholder={placeholder} 
+                placeholder={placeholder}
+                defaultValue={searchText}
             />
         </div>
     );

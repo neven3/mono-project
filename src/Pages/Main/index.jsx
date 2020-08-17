@@ -28,6 +28,7 @@ function Main(props) {
             <ListManipulator
                 handleSearchfieldChange={carStore.changeSearchText}
                 doOnSortClick={carStore.setSortParams}
+                searchText={carStore.searchText}
             />
             <button
                 className="go-to-edit-btn"
