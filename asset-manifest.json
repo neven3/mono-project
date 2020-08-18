@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mono-project/static/css/main.31ec7321.chunk.css",
-    "main.js": "/mono-project/static/js/main.aae96c4d.chunk.js",
-    "main.js.map": "/mono-project/static/js/main.aae96c4d.chunk.js.map",
+    "main.js": "/mono-project/static/js/main.1d7cc68b.chunk.js",
+    "main.js.map": "/mono-project/static/js/main.1d7cc68b.chunk.js.map",
     "runtime-main.js": "/mono-project/static/js/runtime-main.ef7a9e88.js",
     "runtime-main.js.map": "/mono-project/static/js/runtime-main.ef7a9e88.js.map",
     "static/js/2.1c15d1a1.chunk.js": "/mono-project/static/js/2.1c15d1a1.chunk.js",
     "static/js/2.1c15d1a1.chunk.js.map": "/mono-project/static/js/2.1c15d1a1.chunk.js.map",
     "index.html": "/mono-project/index.html",
-    "precache-manifest.ae06bdd220430805f01994d5859193a5.js": "/mono-project/precache-manifest.ae06bdd220430805f01994d5859193a5.js",
+    "precache-manifest.f4d7b9e57d7f8fe40b0bc146292682fb.js": "/mono-project/precache-manifest.f4d7b9e57d7f8fe40b0bc146292682fb.js",
     "service-worker.js": "/mono-project/service-worker.js",
     "static/css/main.31ec7321.chunk.css.map": "/mono-project/static/css/main.31ec7321.chunk.css.map",
     "static/js/2.1c15d1a1.chunk.js.LICENSE.txt": "/mono-project/static/js/2.1c15d1a1.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ef7a9e88.js",
     "static/js/2.1c15d1a1.chunk.js",
     "static/css/main.31ec7321.chunk.css",
-    "static/js/main.aae96c4d.chunk.js"
+    "static/js/main.1d7cc68b.chunk.js"
   ]
 }
