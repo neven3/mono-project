@@ -14,6 +14,12 @@ class EditCardStore {
         }
     };
 
+    resetCarSpecs = () => {
+        for (const key in toJS(this.car)) {
+            this.car[key] = '';
+        }
+    };
+
     changeItemInArray = (arrOfKeysToChange, props) => {
         const indexOfItemInCars = carStore.cars.findIndex((car) => {
             const carToJS = toJS(car);
@@ -39,6 +45,7 @@ class EditCardStore {
 decorate(EditCardStore, {
     car: observable,
     setCarSpecs: action,
+    resetCarSpecs: action,
     changeItemInArray: action,
 });
 

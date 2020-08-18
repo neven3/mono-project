@@ -16,6 +16,7 @@ function EditCard(props) {
                 className="changes-btn"
                 onClick={() => {
                     editCardStore.changeItemInArray(Object.keys(editCardStore.car), props);
+                    editCardStore.resetCarSpecs();
                     props.changeScreen();
                 }}
             >
